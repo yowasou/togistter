@@ -1,41 +1,15 @@
-<%= form_for(@gist) do |f| %>
-  <% if @gist.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@gist.errors.count, "error") %> prohibited this gist from being saved:</h2>
+<%= simple_form_for @gist, :html => { :class => "form-horizontal gist" } do |f| %>
 
-      <ul>
-      <% @gist.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%= f.input :gisturl %>
+    <%= f.input :description %>
+    <%= f.input :matome_id %>
+    <%= f.input :user_id %>
+    <%= f.input :code %>
+    <%= f.input :codetype_id , as: :radio_buttons %>
 
-  <div class="field">
-    Gistのアドレス<br>
-    <%= f.text_field :gisturl %>
-  </div>
-  <div class="field">
-    説明<br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :matome_id %><br>
-    <%= f.number_field :matome_id %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    （Gistではない場合）ソースコード<br>
-    <%= f.text_area :code %>
-  </div>
-  <div class="field">
-    プログラム言語<br>
-    <%= f.number_field :codetype_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div class="form-actions">
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            gists_path, :class => 'btn btn-default' %>
+</div>
 <% end %>

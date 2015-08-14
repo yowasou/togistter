@@ -1,5 +1,6 @@
 class Gist < ActiveRecord::Base
-  belongs_to :matome
-  belongs_to :user
+  validates :matome_id,  presence: true
+  #belongs_to :matome
+  #belongs_to :user
   belongs_to :codetype
 end
