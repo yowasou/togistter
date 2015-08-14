@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Gisturl:</strong>
+  <script src="https://gist.github.com/<%= @gist.gisturl %>.js"></script>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @gist.description %>
+</p>
+
+<p>
+  <strong>Matome:</strong>
+  <%= @gist.matome_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @gist.user_id %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @gist.code %>
+</p>
+
+<p>
+  <strong>Codetype:</strong>
+  <%= @gist.codetype_id %>
+</p>
+
+<%= link_to 'Edit', edit_gist_path(@gist) %> |
+<%= link_to 'Back', gists_path %>

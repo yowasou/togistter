@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Codetypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @codetypes.each do |codetype| %>
+      <tr>
+        <td><%= codetype.name %></td>
+        <td><%= codetype.description %></td>
+        <td><%= link_to 'Show', codetype %></td>
+        <td><%= link_to 'Edit', edit_codetype_path(codetype) %></td>
+        <td><%= link_to 'Destroy', codetype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Codetype', new_codetype_path %>

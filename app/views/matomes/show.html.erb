@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @matome.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @matome.description %>
+</p>
+<%  @gists.each do |gist| %>
+  <script src="https://gist.github.com/<%= gist.gisturl %>.js"></script>
+<%  end %>
+<%= link_to 'Edit', edit_matome_path(@matome) %> |
+<%= link_to 'Back', matomes_path %>

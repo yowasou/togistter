@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Matomes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @matomes.each do |matome| %>
+      <tr>
+        <td><%= matome.name %></td>
+        <td><%= matome.description %></td>
+        <td><%= link_to 'Show', matome %></td>
+        <td><%= link_to 'Edit', edit_matome_path(matome) %></td>
+        <td><%= link_to 'Destroy', matome, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Matome', new_matome_path %>

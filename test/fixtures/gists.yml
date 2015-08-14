@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gisturl: MyString
+  description: MyText
+  matome_id: 1
+  user_id: 1
+  code: MyText
+  codetype_id: 1
+
+two:
+  gisturl: MyString
+  description: MyText
+  matome_id: 1
+  user_id: 1
+  code: MyText
+  codetype_id: 1

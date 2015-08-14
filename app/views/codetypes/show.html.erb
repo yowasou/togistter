@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @codetype.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @codetype.description %>
+</p>
+
+<%= link_to 'Edit', edit_codetype_path(@codetype) %> |
+<%= link_to 'Back', codetypes_path %>
