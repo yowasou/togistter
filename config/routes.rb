@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users
-  resources :codetypes
+  resources :codetypes do
+    member { get :icon }
+  end
   resources :gists
   resources :matomes
   # The priority is based upon order of creation: first created -> highest priority.

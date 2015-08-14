@@ -9,6 +9,7 @@
   <strong>Description:</strong>
   <%= @codetype.description %>
 </p>
+<%= image_tag icon_codetype_path(@codetype) %>
 
 <%= link_to 'Edit', edit_codetype_path(@codetype) %> |
 <%= link_to 'Back', codetypes_path %>

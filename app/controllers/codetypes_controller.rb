@@ -1,6 +1,8 @@
 class CodetypesController < ApplicationController
-  before_action :set_codetype, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_codetype, only: [:show, :edit, :update, :destroy, :icon]
+  def icon
+      send_data(@codetype.icon, type: @codetype.icon_content_type, disposition: :inline)
+  end
   # GET /codetypes
   # GET /codetypes.json
   def index
@@ -25,7 +27,8 @@ class CodetypesController < ApplicationController
   # POST /codetypes.json
   def create
     @codetype = Codetype.new(codetype_params)
-
+    @codetype.icon = params[:codetype][:icon].read # <= バイナリをセット
+    @codetype.icon_content_type = params[:codetype][:icon].content_type # <= ファイルタイプをセット
     respond_to do |format|
       if @codetype.save
         format.html { redirect_to @codetype, notice: 'Codetype was successfully created.' }
