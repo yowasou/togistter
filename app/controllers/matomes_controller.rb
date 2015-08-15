@@ -7,7 +7,8 @@ class MatomesController < ApplicationController
     @matomes = Matome.all
   end
   def icon
-    send_data(@matome.codetype.icon, type: @matome.codetype.icon_content_type, disposition: :inline)
+    codetype = Codetype.Find(@matome.codetype_id)
+    send_data(codetype.icon, type: codetype.icon_content_type, disposition: :inline)
   end
   # GET /matomes/1
   # GET /matomes/1.json

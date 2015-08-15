@@ -46,3 +46,4 @@ gem 'therubyracer' # javascript runtime。lessをコンパイルするために�
 gem 'less-rails' # Railsでlessを使えるようにする。Bootstrapがlessで書かれているため
 gem 'twitter-bootstrap-rails' # Bootstrapの本体
 gem 'simple_form'
+gem 'shoulda-matchers', require: false
