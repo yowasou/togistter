@@ -5,7 +5,7 @@
     <%= f.input :matome_id %>
     <%= f.input :user_id %>
     <%= f.input :code %>
-    <%= f.input :codetype_id , as: :radio_buttons %>
+    <%= f.input :codetype_id, collection: Codetype.all.map { |c| [c.name, c.id] },as: :radio_buttons %>
 
 <div class="form-actions">
   <%= f.submit nil, :class => 'btn btn-primary' %>
