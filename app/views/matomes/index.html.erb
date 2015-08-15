@@ -2,15 +2,22 @@
 
 <h1>Togistter</h1>
 
-最近のまとめ
+<h2>最近のまとめ</h2>
 <% @matomes.each do |matome| %>
-      <tr>
-        <td><%= matome.name %></td>
-        <td><%= matome.description %></td>
-        <td><%= link_to 'Show', matome %></td>
-        <td><%= link_to 'Edit', edit_matome_path(matome) %></td>
-        <td><%= link_to 'Destroy', matome, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="main">
+<%= image_tag(icon_matome_path(matome), :class => "icon") %>
+<div class="date">
+最終編集日時:yyyy/MM/dd HH:mi:ss ／ 作成日時:<%= matome.created_at %>
+</div>
+<h3><%= link_to matome.name, matome %></h3>
+<div class="description">
+<%= matome.description %>
+</div>
+</div>
+<!--
+      <td><%= link_to 'Edit', edit_matome_path(matome) %></td>
+      <td><%= link_to 'Destroy', matome, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+-->
 <% end %>
 <br>
 <%= link_to 'あたらしくまとめを作る', new_matome_path %>

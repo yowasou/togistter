@@ -1,3 +1,35 @@
 // Place all the styles related to the matomes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main {
+  border:solid 2px;
+  border-radius: 10px;
+  /* CSS3草案 */
+  -webkit-border-radius: 10px;
+  /* Safari,Google Chrome用 */
+  -moz-border-radius: 10px;
+  /* Firefox用 */
+  width: 99%;
+  height: 80px;
+  background-color: #FFE9EF;
+  border-color: #6F8097;
+  padding: 5px;
+}
+.icon {
+  width: 80px;
+  height: 80px;
+  float: left;
+}
+.addicon {
+  float: right;
+}
+h3 {
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+  padding-bottom: 0.1em;
+  border-bottom: 4px solid #6F8097;
+  color: #18293E;
+}
+h3:hover{
+  border-bottom: 4px solid #18293E;
+}
