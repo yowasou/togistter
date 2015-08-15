@@ -4,10 +4,15 @@ class MatomesController < ApplicationController
   # GET /matomes
   # GET /matomes.json
   def index
-    @matomes = Matome.all
+    @matomes = Matome.all.order("id desc").limit(20)
   end
   def icon
-    codetype = Codetype.Find(@matome.codetype_id)
+    id = params[:id]
+    matome = Matome.find(id)
+    codetype = matome.codetype
+    if (codetype == nil)
+      codetype = Codetype.first
+    end
     send_data(codetype.icon, type: codetype.icon_content_type, disposition: :inline)
   end
   # GET /matomes/1

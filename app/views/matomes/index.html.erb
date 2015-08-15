@@ -4,7 +4,6 @@
 
 <h2>最近のまとめ</h2>
 <% @matomes.each do |matome| %>
-<%= debug matome %>
 <div class="main">
 <%= image_tag(icon_matome_path(matome), :class => "icon") %>
 <div class="date">
@@ -21,4 +20,4 @@
 -->
 <% end %>
 <br>
-<%= link_to 'あたらしくまとめを作る', new_matome_path %>
+<h2><%= link_to 'あたらしくまとめを作る', new_matome_path %></h2>

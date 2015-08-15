@@ -1,4 +1,4 @@
 class Matome < ActiveRecord::Base
   has_many :gists
-  has_one :codetype
+  belongs_to :codetype
 end

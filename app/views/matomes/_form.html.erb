@@ -1,25 +1,12 @@
-<%= form_for(@matome) do |f| %>
-  <% if @matome.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@matome.errors.count, "error") %> prohibited this matome from being saved:</h2>
+<%= simple_form_for @matome, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :name %>
+  <%= error_span(@matome[:name]) %>
+  <%= f.input :description %>
+  <%= error_span(@matome[:description]) %>
+  <%= f.input :codetype_id %>
+  <%= error_span(@matome[:codetype_id]) %>
 
-      <ul>
-      <% @matome.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                matomes_path, :class => 'btn btn-default' %>
 <% end %>
