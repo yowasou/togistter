@@ -10,6 +10,12 @@
 最終編集日時:yyyy/MM/dd HH:mi:ss ／ 作成日時:<%= matome.created_at %>
 </div>
 <h3><%= link_to matome.name, matome %></h3>
+<div class="addicon">
+<%= link_to '追加', new_matome_path(matome) %>
+<%= link_to image_tag(asset_path("add.png"), :class => "iconimg"), new_matome_path(matome) %>
+<%= link_to '編集', edit_matome_path(matome) %>
+<%= link_to image_tag(asset_path("edit.png"), :class => "iconimg"), edit_matome_path(matome) %>
+</div>
 <div class="description">
 <%= matome.description %>
 </div>
