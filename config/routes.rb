@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   resources :codetypes do
     member { get :icon }
   end
-  resources :gists
-  resources :matomes
+  resources :matomes , shallow: true do
+    resources :gists
+    member { get :icon }
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'matomes#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
