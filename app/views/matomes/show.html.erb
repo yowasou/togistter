@@ -17,7 +17,7 @@
 <%= link_to t('.edit', :default => t("helpers.links.edit")),
               edit_matome_path(@matome), :class => 'btn btn-default' %>
 <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-              matome_path(@matome),
+              edit_matome_path(@matome),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>

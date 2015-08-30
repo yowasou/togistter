@@ -15,6 +15,9 @@ class GistsController < ApplicationController
   # GET /gists/new
   def new
     @gist = Gist.new
+    @gist.matome_id = params[:matome_id]
+    @matome = Matome.find(params[:matome_id])
+    @gist.codetype_id = @matome.codetype_id
   end
 
   # GET /gists/1/edit
@@ -31,6 +34,7 @@ class GistsController < ApplicationController
     ul.gsub!(".js\"></script>","")
     ul.gsub!("https://gist.github.com/","")
     @gist.gisturl = ul
+    @gist.matome_id = params[:matome_id]
     respond_to do |format|
       if @gist.save
         format.html { redirect_to @gist, notice: 'Gist was successfully created.' }

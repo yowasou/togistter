@@ -1,15 +1,13 @@
-<%= simple_form_for @gist, :html => { :class => "form-horizontal gist" } do |f| %>
+<%= simple_form_for [@matome, @gist], :html => { :class => "form-horizontal gist" } do |f| %>
 
     <%= f.input :gisturl %>
     <%= f.input :description %>
-    <%= f.input :matome_id %>
-    <%= f.input :user_id %>
     <%= f.input :code %>
     <%= f.input :codetype_id, collection: Codetype.all.map { |c| [c.name, c.id] },as: :radio_buttons %>
 
 <div class="form-actions">
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-            gists_path, :class => 'btn btn-default' %>
+            matome_gists_path, :class => 'btn btn-default' %>
 </div>
 <% end %>

@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :codetypes do
     member { get :icon }
   end
-  resources :gists
-  resources :matomes do
+  resources :matomes , shallow: true do
+    resources :gists
     member { get :icon }
   end
   # The priority is based upon order of creation: first created -> highest priority.
