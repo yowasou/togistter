@@ -14,7 +14,15 @@
     <div class="collapse_button"
       id="cbutton<%= gist.id.to_s %>"
       onclick="collapseGist(cbutton<%= gist.id.to_s %> ,gist<%= gist.id.to_s %>)"> + </div>
-    <dd><script src="https://gist.github.com/<%= gist.gisturl %>.js"></script></dd>
+      <% if (gist.gisturl != nil and gist.gisturl.length > 0 )then %>
+        <dd><script src="https://gist.github.com/<%= gist.gisturl %>.js"></script></dd>
+      <% else %>
+      <dd class="brushed_code">
+        <pre class="brush: <%= gist.codetype.syntaxcode %>;">
+          <%= gist.code %>
+        </pre>
+      </dd>
+      <% end %>
   </div>
 <% end %>
 

@@ -2,7 +2,6 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 @collapseGist = (cbutton,gist) ->
-  debugger
   cName = gist.className
   if (cName == "gists_expand")
     gist.className = "gists_collapse"
