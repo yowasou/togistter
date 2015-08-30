@@ -10,7 +10,13 @@
 </dl>
 <% @matome.gists.each do |gist| %>
   <div class="gists_collapse" id="gist<%= gist.id.to_s %>">
-    <dt><%= gist.description %></dt>
+    <dt>
+      <%= gist.description %>
+      <div class="addicon">
+      <%= link_to '編集', edit_gist_path(gist) %>
+      <%= link_to image_tag(asset_path("edit.png"), :class => "iconimg"), edit_gist_path(gist) %>
+      </div>
+    </dt>
     <div class="collapse_button"
       id="cbutton<%= gist.id.to_s %>"
       onclick="collapseGist(cbutton<%= gist.id.to_s %> ,gist<%= gist.id.to_s %>)"> + </div>

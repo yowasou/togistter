@@ -1,12 +1,13 @@
 <%= simple_form_for @matome, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :name %>
-  <%= error_span(@matome[:name]) %>
-  <%= f.input :description %>
-  <%= error_span(@matome[:description]) %>
-  <%= f.input :codetype_id %>
-  <%= error_span(@matome[:codetype_id]) %>
+<h3>タイトル</h3>
+  <%= text_field :matome, :name , :size => 80 %>
+<h3>説明</h3>
+  <%= text_area :matome, :description , :size => "80x3" %>
+<h3>デフォルトのプログラム言語(※コード追加時に他の言語も選択できます)</h3>
+  <%= f.collection_select(:codetype_id, Codetype.all, :id, :name) %>
+<hr>
 
-  <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                matomes_path, :class => 'btn btn-default' %>
+<%= f.button :submit, :class => 'btn-primary' %>
+<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              matomes_path, :class => 'btn btn-default' %>
 <% end %>
