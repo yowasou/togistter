@@ -1,16 +1,28 @@
+<%= render :file => 'layouts/header.erb' %>
+
 <%- model_class = Matome -%>
 <div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+  <%= image_tag(icon_matome_path(@matome), :class => "icon") %>
+  <h2><%= @matome.name %></h2>
+</div>
+<dl class="dl-horizontal">
+  <dd><%= @matome.description %></dd>
+</dl>
+<% @matome.gists.each do |gist| %>
+  <div class="gists_collapse" id="gist<%= gist.id.to_s %>">
+    <dt><%= gist.description %></dt>
+    <div class="collapse_button"
+      id="cbutton<%= gist.id.to_s %>"
+      onclick="collapseGist(cbutton<%= gist.id.to_s %> ,gist<%= gist.id.to_s %>)"> + </div>
+    <dd><script src="https://gist.github.com/<%= gist.gisturl %>.js"></script></dd>
+  </div>
+<% end %>
+
+<div class="addicon_footer">
+<%= link_to '追加', new_matome_gist_path(@matome) %>
+<%= link_to image_tag(asset_path("add.png"), :class => "iconimg"), new_matome_gist_path(@matome) %>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @matome.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @matome.description %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:codetype_id) %>:</strong></dt>
-  <dd><%= @matome.codetype_id %></dd>
-</dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),
               matomes_path, :class => 'btn btn-default'  %>

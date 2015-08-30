@@ -16,13 +16,56 @@
   padding: 5px;
   margin: 6px;
 }
+.gists_expand {
+  border:solid 2px;
+  border-radius: 10px;
+  /* CSS3草案 */
+  -webkit-border-radius: 10px;
+  /* Safari,Google Chrome用 */
+  -moz-border-radius: 10px;
+  /* Firefox用 */
+  width: 99%;
+  background-color: #FFE9EF;
+  border-color: #6F8097;
+  padding: 10px;
+  margin: 6px;
+}
+.gists_collapse {
+  border:solid 2px;
+  border-radius: 10px;
+  /* CSS3草案 */
+  -webkit-border-radius: 10px;
+  /* Safari,Google Chrome用 */
+  -moz-border-radius: 10px;
+  /* Firefox用 */
+  width: 99%;
+  height: 200px;
+  background-color: #FFE9EF;
+  border-color: #6F8097;
+  padding: 10px;
+  margin: 6px;
+  overflow-y: scroll;
+}
 .icon {
   width: 72px;
   height: 72px;
   float: left;
 }
+.collapse_button{
+  width: 24px;
+  height: 24px;
+  float: left;
+  background-color: #FFFFFF;
+  border-color: #6F8097;
+  border:solid 2px;
+  text-align: center;
+}
 .addicon {
   float: right;
+}
+.addicon_footer {
+  height: 40px;
+  padding: 10px;
 }
 .iconimg{
   width: 20px;

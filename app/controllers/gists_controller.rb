@@ -33,6 +33,7 @@ class GistsController < ApplicationController
     ul.gsub!("<script src=\"https://gist.github.com/","")
     ul.gsub!(".js\"></script>","")
     ul.gsub!("https://gist.github.com/","")
+    ul.gsub!(".js","")
     @gist.gisturl = ul
     @gist.matome_id = params[:matome_id]
     respond_to do |format|
