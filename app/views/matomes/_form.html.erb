@@ -1,25 +1,15 @@
-<%= form_for(@matome) do |f| %>
-  <% if @matome.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@matome.errors.count, "error") %> prohibited this matome from being saved:</h2>
+<%= simple_form_for @matome, :html => { :class => 'form-horizontal' } do |f| %>
+<h3>タイトル</h3>
+  <%= text_field :matome, :name , :size => 80, :class => "inputfield" %>
+<h3>説明</h3>
+  <%= text_area :matome, :description , :size => "80x3", :class => "inputfield" %>
+<h3>デフォルトのプログラム言語(※コード追加時に他の言語も選択できます)</h3>
+<div class="inputfield">
+  <%= f.collection_select(:codetype_id, Codetype.all, :id, :name) %>
+</div>
+<hr>
 
-      <ul>
-      <% @matome.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<%= f.button :submit, :class => 'btn-primary' %>
+<%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+              matomes_path, :class => 'btn btn-default' %>
 <% end %>

@@ -1,0 +1,9 @@
+<%= simple_form_for [@gist, @comment], :html => { :class => "form-horizontal comment" } do |f| %>
+  <%= f.error_notification %>
+  <h3>内容</h3>
+    <%= text_area :comment, :comment , :size => "80x3", :class => 'inputfield' %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

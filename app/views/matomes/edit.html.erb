@@ -1,6 +1,5 @@
-<h1>Editing Matome</h1>
+<%= render :file => 'layouts/header.erb' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @matome %> |
-<%= link_to 'Back', matomes_path %>
+<%- model_class = Matome -%>
+<h2>まとめ内容を編集</h2>
+<%= render :partial => 'form' %>
