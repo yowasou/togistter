@@ -13,8 +13,8 @@
     <dt>
       <%= gist.description %>
       <div class="addicon">
-      <%= link_to 'コメント', new_comment_path(gist) %>
-      <%= link_to image_tag(asset_path("talk.png"), :class => "iconimg"), new_comment_path(gist) %>
+      <%= link_to 'コメント', new_gist_comment_path(gist) %>
+      <%= link_to image_tag(asset_path("talk.png"), :class => "iconimg"), new_gist_comment_path(gist) %>
       <%= link_to '編集', edit_gist_path(gist) %>
       <%= link_to image_tag(asset_path("edit.png"), :class => "iconimg"), edit_gist_path(gist) %>
       </div>
