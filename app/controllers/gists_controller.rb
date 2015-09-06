@@ -36,10 +36,11 @@ class GistsController < ApplicationController
     ul.gsub!(".js","")
     @gist.gisturl = ul
     @gist.matome_id = params[:matome_id]
+    @matome = Matome.find(params[:matome_id])
     respond_to do |format|
       if @gist.save
-        format.html { redirect_to @gist, notice: 'Gist was successfully created.' }
-        format.json { render :show, status: :created, location: @gist }
+        format.html { redirect_to @matome }
+        format.json { render :show, status: :created, location: @matome }
       else
         format.html { render :new }
         format.json { render json: @gist.errors, status: :unprocessable_entity }
