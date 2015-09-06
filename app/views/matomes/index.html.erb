@@ -5,7 +5,12 @@
   <div class="main">
   <%= image_tag(icon_matome_path(matome), :class => "icon") %>
   <div class="date">
-  最終編集日時:<%= matome.gists.maximum(:updated_at) %> ／ 作成日時:<%= matome.created_at %>
+  最終編集日時:<%= d = matome.gists.maximum(:updated_at)
+             if (d != nil) then
+               d.in_time_zone
+             else
+               "未登録"
+             end %> ／ 作成日時:<%= matome.created_at %>
   </div>
   <h3><%= link_to matome.name, matome, data: { no_turbolink: true } %></h3>
   <div class="addicon">
