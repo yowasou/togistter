@@ -1,9 +1,15 @@
 <%= simple_form_for [@matome, @gist], :html => { :class => "form-horizontal gist" } do |f| %>
-
-    <%= f.input :gisturl %>
-    <%= f.input :description %>
-    <%= f.input :code %>
-    <%= f.input :codetype_id, collection: Codetype.all.map { |c| [c.name, c.id] },as: :radio_buttons %>
+    <h3>説明</h3>
+      <%= text_area :gist, :description , :size => "80x3", :class => 'inputfield' %>
+    <h3>GistのURL(コードを直接入力する場合は不要)</h3>
+      <%= text_field :gist, :gisturl , :size => 80, :class => 'inputfield' %>
+    <h3>コード(GistのURLを指定している場合は不要)</h3>
+      <%= text_area :gist, :description , :size => "120x12", :class => 'inputfield' %>
+    <h3>デフォルトのプログラム言語</h3>
+      <div class="inputfield">
+      <%= f.collection_select(:codetype_id, Codetype.all, :id, :name) %>
+      </div>
+    <hr>
 
 <div class="form-actions">
   <%= f.submit nil, :class => 'btn btn-primary' %>

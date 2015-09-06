@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150830105928) do
+ActiveRecord::Schema.define(version: 20150906043406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 20150830105928) do
     t.binary   "icon"
     t.string   "icon_content_type"
     t.string   "syntaxcode"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "gist_id"
+    t.integer  "user_id"
+    t.text     "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "gists", force: :cascade do |t|

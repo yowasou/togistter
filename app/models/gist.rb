@@ -3,4 +3,5 @@ class Gist < ActiveRecord::Base
   belongs_to :matome
   has_one :user
   belongs_to :codetype
+  has_many :comments
 end
