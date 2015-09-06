@@ -29,12 +29,11 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(comment_params)
     gid = params[:gist_id]
+    @comment.gist_id = gid
     @gist = Gist.find(gid)
     respond_to do |format|
       if @comment.save
-        #format.html { redirect_to @comment, notice: 'Comment was successfully created.' }
-        #format.json { render :show, status: :created, location: @comment }
-        format.html { redirect_to @gist.matome, notice: 'Comment was successfully created.' }
+        format.html { redirect_to @gist.matome }
         format.json { render :show, status: :created, location: @gist.matome }
       else
         format.html { render :new }

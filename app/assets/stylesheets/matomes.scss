@@ -71,6 +71,15 @@
   width: 20px;
   height: 20px;
 }
+.comment_1row {
+  float: left;
+  border:solid 2px;
+  height: 24px;
+  background-color: #FFE9EF;
+  border-color: #6F8097;
+  max-width: 600px;
+  overflow-y: scroll;
+}
 h1 {
   font-size: 400%;
   margin : 16px;
