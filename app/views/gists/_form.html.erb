@@ -4,7 +4,7 @@
     <h3>GistのURL(コードを直接入力する場合は不要)</h3>
       <%= text_field :gist, :gisturl , :size => 80, :class => 'inputfield' %>
     <h3>コード(GistのURLを指定している場合は不要)</h3>
-      <%= text_area :gist, :description , :size => "120x12", :class => 'inputfield' %>
+      <%= text_area :gist, :code , :size => "120x12", :class => 'inputfield' %>
     <h3>デフォルトのプログラム言語</h3>
       <div class="inputfield">
       <%= f.collection_select(:codetype_id, Codetype.all, :id, :name) %>
