@@ -1,5 +1,3 @@
-<h1>New Matome</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', matomes_path %>
+<%= render :file => 'layouts/header.erb' %>
+<h2>新しくまとめを作成</h2>
+<%= render :partial => 'form' %>

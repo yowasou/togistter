@@ -1,0 +1,4 @@
+<%= render :file => 'layouts/header.erb' %>
+<h2>コメント登録</h2>
+<%= render 'form' %>
+<%= link_to 'Back', matome_path(@gist.matome) , data: { no_turbolink: true } %>
