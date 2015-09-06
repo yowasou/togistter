@@ -5,7 +5,9 @@ Rails.application.routes.draw do
     member { get :icon }
   end
   resources :matomes , shallow: true do
-    resources :gists
+    resources :gists , shallow: true do
+      resources :comments
+    end
     member { get :icon }
   end
   # The priority is based upon order of creation: first created -> highest priority.
